@@ -1,0 +1,7 @@
+# Ignore .env files in specific folders
+backend/.env
+consumer/.env
+transcoder/.env
+
+# Ignore __pycache__ directories globally
+__pycache__/
