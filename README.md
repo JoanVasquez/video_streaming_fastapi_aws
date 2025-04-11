@@ -41,7 +41,7 @@ This project is a scalable, microservices-oriented platform for user authenticat
 ---
 
 ## 📁 Project Structure
-
+. ├── backend/ │ ├── main.py │ ├── routes/ │ ├── services/ │ ├── db/ │ ├── Dockerfile │ └── ... ├── consumer/ │ ├── main.py │ └── Dockerfile ├── transcoder/ │ ├── main.py │ ├── transcode_video.py │ └── Dockerfile ├── architecture_diagram.png └── README.md
 
 ---
 
