@@ -7,24 +7,34 @@ services:
     ports:
       - "8000:8000"
     image: fastapi_app
-    environment:
-      # TODO: Move env variables to the .env file
-      - DATABASE_URL=postgres://postgres:test123@:5432/mydatabase
+    env_file:
+      - .env
     volumes:
       # INFO: this is a bind
-      - ./:app
+      - ./:/app
+      - ~/.aws:/root/.aws:ro
+    depends_on:
+      - db
+      - redis
   db:
     image: postgres:15
     container_name: postgres_db
     ports:
       - "5432:5432"
     environment:
-      # TODO: Move env variables to the .env file
-      - POSTGRES_DB=mydatabase
-      - POSTGRES_USER=postgres`
-      - POSTGRES_PASSWORD=test123
+      POSTGRES_DB: ${POSTGRES_DB_NAME}
+      POSTGRES_USER: ${POSTGRES_DB_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_DB_PASSWORD}
     volumes:
-      - postgres_data/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data
+  redis:
+    image: redis:7.4.2
+    container_name: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
 
 volumes:
   postgres_data:
+  redis_data:

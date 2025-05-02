@@ -23,7 +23,6 @@ def signup_user(
     user_service: UserService = Depends(UserService),
 ):
     try:
-
         # 👤 Create new user
         user_service.create_user(data)
 
@@ -55,7 +54,7 @@ def login_user(
         response.set_cookie(
             key="access_token",
             value=access_token,
-            httpOnly=True,
+            httponly=True,
             secure=True,
         )
 

@@ -48,11 +48,11 @@ class UserService:
         # 🔍 Extract Cognito user ID
         cognito_sub = cognito_response.get("UserSub")
 
-        # ⚠️ Validate Cognito response
+        # # ⚠️ Validate Cognito response
         if not cognito_sub:
             raise HTTPException(400, "Cognito did not return a valid user sub")
 
-        # 💾 Create user in database
+        # # 💾 Create user in database
         new_user = User(
             name=user.name,
             email=user.email,

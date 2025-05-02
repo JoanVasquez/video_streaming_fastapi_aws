@@ -13,3 +13,5 @@ class SecretKeys(BaseSettings):
     POSTGRES_DB_PASSWORD: str = ""
     POSTGRES_DB_NAME: str = ""
     POSTGRES_DB_PORT: str = ""
+    AWS_RAW_VIDEO_BUCKER: str = ""
+    AWS_VIDEO_THUMBNAIL_BUCKET: str = ""

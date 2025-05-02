@@ -8,8 +8,8 @@ class User(Base):
 
     # 🔑 Primary key identifier for the user
     id = Column(Integer, primary_key=True, index=True)
-    # 👤 Username of the user
-    username = Column(TEXT, nullable=False)
+    # 👤 name of the user
+    name = Column(TEXT, nullable=False)
     # 📧 Email address of the user (unique)
     email = Column(TEXT, unique=True, index=True, nullable=False)
     # 🔒 Cognito sub identifier for authentication (unique)

@@ -1,7 +1,7 @@
 # 🔄 Import necessary modules and dependencies
 from fastapi import FastAPI
 from contextlib import asynccontextmanager
-from routes import auth
+from routes import auth, upload, video
 from fastapi.middleware.cors import CORSMiddleware
 from db.base import Base
 from db.db import get_engine, dispose_engine
@@ -36,6 +36,8 @@ app.add_middleware(
 
 # 🛣️ Include authentication routes
 app.include_router(auth.router, prefix="/auth")
+app.include_router(upload.router, prefix="/upload/video")
+app.include_router(video.router, prefix="/video")
 
 
 # 🏠 Root endpoint

@@ -18,4 +18,4 @@ def get_secret_hash(username: str, client_id: str, client_secret: str):
     ).digest()
 
     # Decode the base64 hash and return as string
-    return base64.b64decode(digest).decode()
+    return base64.b64encode(digest).decode()

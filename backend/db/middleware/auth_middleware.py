@@ -31,5 +31,4 @@ def get_current_user(access_token: str = Cookie(None)):
     # Check if user is logged in
     if not access_token:
         raise HTTPException(401, "User not logged in!")
-    print(access_token)
     return _get_user_from_cognito(access_token)
